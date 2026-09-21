@@ -1,8 +1,5 @@
-const EMAIL = "stephane.chicouri@gmail.com";
 const form = document.getElementById("inscription-form");
 const errorBox = document.getElementById("form-error");
-const recap = document.getElementById("recap");
-const recapCard = document.getElementById("recap-card");
 const fileInput = document.getElementById("piece");
 const pieceName = document.getElementById("piece-name");
 const btnValider = document.getElementById("btn-valider");
@@ -29,6 +26,8 @@ function updateType() {
 Array.from(form.elements.type).forEach((el) => el.addEventListener("change", updateType));
 updateType();
 
+document.getElementById("next-url").value = new URL("confirmation.html", window.location.href).href;
+
 document.getElementById("btn-joindre").addEventListener("click", () => fileInput.click());
 fileInput.addEventListener("change", () => {
   const file = fileInput.files[0];
@@ -47,10 +46,10 @@ form.addEventListener("reset", () => {
   setTimeout(updateType, 0);
 });
 
-form.addEventListener("submit", async (event) => {
+form.addEventListener("submit", (event) => {
   event.preventDefault();
   showError("");
-  if (form.elements.website.value) return;
+  if (form.elements._honey && form.elements._honey.value) return;
   if (!form.reportValidity()) {
     showError("Merci de compléter les champs obligatoires.");
     return;
@@ -60,60 +59,13 @@ form.addEventListener("submit", async (event) => {
     showError(isSociete() ? "Joignez un extrait KBis." : "Joignez une copie de pièce d’identité.");
     return;
   }
-  if (file.size > 8 * 1024 * 1024) {
-    showError("La pièce jointe ne doit pas dépasser 8 Mo.");
+  if (file.size > 10 * 1024 * 1024) {
+    showError("La pièce jointe ne doit pas dépasser 10 Mo.");
     return;
   }
 
-  const societe = isSociete();
-  const data = {
-    type: societe ? "Société" : "Personne physique",
-    nom: form.nom.value.trim(),
-    prenom: societe ? "" : form.prenom.value.trim(),
-    dateNaissance: societe ? "" : form.dateNaissance.value,
-    lieuNaissance: societe ? "" : form.lieuNaissance.value.trim(),
-    nationalite: form.nationalite.value.trim(),
-    profession: societe ? "" : form.profession.value.trim(),
-    adresse: form.adresse.value.trim(),
-    rcs: societe ? form.rcs.value.trim() : "",
-    email: form.email.value.trim(),
-    telephone: form.telephone.value.trim(),
-    piece: file.name,
-  };
-
-  const payload = new FormData();
-  payload.append("_subject", "Inscription action collective — 78 avenue des Champs-Élysées");
-  payload.append("_template", "table");
-  payload.append("_captcha", "false");
-  payload.append("_replyto", data.email);
-  Object.entries(data).forEach(([key, value]) => payload.append(key, value));
-  payload.append(
-    "message",
-    Object.entries(data)
-      .map(([k, v]) => `${k} : ${v}`)
-      .join("\n"),
-  );
-  payload.append("attachment", file, file.name);
-
+  document.getElementById("replyto").value = form.email.value.trim();
   btnValider.disabled = true;
   btnValider.textContent = "Envoi en cours…";
-  try {
-    const response = await fetch(`https://formsubmit.co/ajax/${EMAIL}`, {
-      method: "POST",
-      headers: { Accept: "application/json" },
-      body: payload,
-    });
-    if (!response.ok) throw new Error("send");
-    recapCard.innerHTML = Object.entries(data)
-      .filter(([, v]) => v)
-      .map(([k, v]) => `<p><strong>${k}</strong> — ${v}</p>`)
-      .join("");
-    recap.classList.remove("hidden");
-    recap.scrollIntoView({ behavior: "smooth" });
-  } catch {
-    showError("L’envoi de l’e-mail a échoué. Réessayez dans un instant.");
-  } finally {
-    btnValider.disabled = false;
-    btnValider.textContent = "VALIDER";
-  }
+  form.submit();
 });

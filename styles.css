@@ -50,6 +50,17 @@ input, textarea { font: inherit; font-weight: 400; padding: 12px; border: 1px so
 .check { flex-direction: row; gap: 10px; font-weight: 400; color: var(--muted); align-items: flex-start; }
 .check input { width: auto; margin-top: 4px; }
 .hidden, .hp { display: none !important; }
+.vis-hide {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 .error { color: var(--error); font-weight: 600; }
 .file-name { margin-top: 10px; font-weight: 500; }
 footer { border-top: 1px solid var(--border); padding: 48px 0 64px; color: var(--muted); }

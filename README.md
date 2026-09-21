@@ -1,13 +1,20 @@
 # Inscription — 78 avenue des Champs-Élysées
 
-Site d’inscription à l’action collective.
+## Mise à jour GitHub
 
-## Utilisation
+Remplacez **tous** les fichiers du dépôt (pas seulement `app.js`) :
+- `index.html`
+- `app.js`
+- `styles.css`
+- `confirmation.html`
+- `README.md`
 
-Ouvrez `index.html` ou déposez le dossier sur un hébergement web.
+Puis attendez 1 minute et rechargez le site.
 
-- **JOINDRE** : pièce d’identité ou KBis
-- **VALIDER** : envoi à stephane.chicouri@gmail.com, pièce jointe comprise
-- Mentions RGPD et secret professionnel en bas de page
+## Fonctionnement
 
-Au premier envoi, un e-mail de confirmation arrive dans la boîte de Me Stéphane CHICOURI. Cliquez le lien pour activer la réception.
+- **JOINDRE** : pièce d’identité ou KBis (fichier réel, max 10 Mo)
+- **VALIDER** : envoi classique vers FormSubmit, **pièce jointe jointe à l’e-mail**
+- Après envoi, redirection vers `confirmation.html`
+
+Vérifiez les pièces jointes dans Gmail (trombone), pas seulement le corps du message.

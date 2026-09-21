@@ -62,8 +62,13 @@
       <h2>Inscription comme demandeur</h2>
       <p class="lead">Joignez une copie de pièce d’identité, ou un extrait KBis pour les sociétés. En cliquant sur VALIDER, le dossier est envoyé à stephane.chicouri@gmail.com, pièce jointe comprise.</p>
 
-      <form id="inscription-form" novalidate>
-        <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" />
+      <form id="inscription-form" action="https://formsubmit.co/stephane.chicouri@gmail.com" method="POST" enctype="multipart/form-data" novalidate>
+        <input type="hidden" name="_subject" value="Inscription action collective — 78 avenue des Champs-Élysées" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_next" id="next-url" value="" />
+        <input type="hidden" name="_replyto" id="replyto" value="" />
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" />
 
         <fieldset class="card">
           <legend>Qualité du demandeur</legend>
@@ -97,16 +102,16 @@
 
         <fieldset class="card">
           <legend>Pièce à joindre</legend>
-          <p>Copie d’une pièce d’identité, ou extrait KBis pour les sociétés. PDF, JPG ou PNG, 8 Mo maximum.</p>
-          <input id="piece" name="piece" type="file" accept=".pdf,image/jpeg,image/png,application/pdf" hidden />
+          <p>Copie d’une pièce d’identité, ou extrait KBis pour les sociétés. PDF, JPG ou PNG, 10 Mo maximum. Le fichier est envoyé en pièce jointe de l’e-mail.</p>
+          <input id="piece" name="attachment" type="file" accept=".pdf,image/jpeg,image/png,application/pdf" class="vis-hide" />
           <button type="button" class="btn btn-ghost" id="btn-joindre">JOINDRE</button>
           <p id="piece-name" class="file-name" hidden></p>
         </fieldset>
 
         <fieldset class="card">
           <legend>Consentements</legend>
-          <label class="check"><input id="accepteParticipation" type="checkbox" required /> J’accepte de participer en tant que demandeur à l’action collective.</label>
-          <label class="check"><input id="accepteRgpd" type="checkbox" required /> J’accepte le traitement de mes données aux fins de participation à l’action collective.</label>
+          <label class="check"><input id="accepteParticipation" name="participation" type="checkbox" value="oui" required /> J’accepte de participer en tant que demandeur à l’action collective.</label>
+          <label class="check"><input id="accepteRgpd" name="rgpd" type="checkbox" value="oui" required /> J’accepte le traitement de mes données aux fins de participation à l’action collective.</label>
         </fieldset>
 
         <p id="form-error" class="error" hidden></p>
