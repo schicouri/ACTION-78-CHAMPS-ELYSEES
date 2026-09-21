@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inscription à l’action collective — 78 avenue des Champs-Élysées</title>
+  <meta name="description" content="Page d’inscription à l’action collective pour la fin de l’administration provisoire de la copropriété 78 avenue des Champs-Élysées." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand">
+        <span class="brand-mark">78</span>
+        <div>
+          <p class="brand-kicker">Copropriété</p>
+          <p class="brand-name">Champs-Élysées</p>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="#objet">Objet</a>
+        <a href="#inscription">Inscription</a>
+        <a href="#mentions">Mentions</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <div>
+        <p class="eyebrow">Action en justice collective</p>
+        <h1>Page d’inscription à l’action collective</h1>
+        <p class="lead">Pour la fin de l’administration provisoire de la copropriété 78 avenue des Champs-Élysées.</p>
+        <div class="actions">
+          <a class="btn" href="#inscription">S’inscrire comme demandeur</a>
+          <a class="btn btn-ghost" href="#objet">Lire l’objet de l’action</a>
+        </div>
+      </div>
+      <aside class="card">
+        <p class="eyebrow">Procédure visée</p>
+        <h2>Nomination d’un syndic</h2>
+        <p>L’action sera dirigée contre l’étude <strong>CAUCHEMEZ-LAUBEUF</strong> pour obtenir la nomination d’un syndic de copropriété et limiter la mission de l’administrateur provisoire.</p>
+        <p>Menée par le cabinet <a href="https://www.smithdoria.com/" target="_blank" rel="noreferrer">SMITH D’ORIA</a>.</p>
+        <p>Coordonnée par Me Stéphane CHICOURI, avocat — <a href="tel:+33682811531">06 82 81 15 31</a> — <a href="mailto:stephane.chicouri@gmail.com">stephane.chicouri@gmail.com</a>.</p>
+        <p>Les honoraires et les frais seront répartis entre les participants.</p>
+      </aside>
+    </section>
+
+    <section id="objet" class="band">
+      <div class="wrap">
+        <p class="eyebrow">Objet</p>
+        <h2>Pourquoi cette inscription</h2>
+        <p class="lead">La présente page a pour objet de vous inscrire comme demandeur à l’action en justice collective qui sera dirigée contre l’étude CAUCHEMEZ-LAUBEUF pour obtenir la nomination d’un syndic de copropriété et limiter la mission de l’administrateur provisoire.</p>
+      </div>
+    </section>
+
+    <section id="inscription" class="wrap form-section">
+      <p class="eyebrow">Formulaire</p>
+      <h2>Inscription comme demandeur</h2>
+      <p class="lead">Joignez une copie de pièce d’identité, ou un extrait KBis pour les sociétés. En cliquant sur VALIDER, le dossier est envoyé à stephane.chicouri@gmail.com, pièce jointe comprise.</p>
+
+      <form id="inscription-form" novalidate>
+        <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" />
+
+        <fieldset class="card">
+          <legend>Qualité du demandeur</legend>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="type" value="personne" checked /> Personne physique</label>
+            <label class="chip"><input type="radio" name="type" value="societe" /> Société / personne morale</label>
+          </div>
+        </fieldset>
+
+        <fieldset class="card">
+          <legend>Identité</legend>
+          <div class="grid">
+            <label> <span id="label-nom">Nom *</span> <input id="nom" name="nom" required /> </label>
+            <label id="field-prenom"> <span>Prénom *</span> <input id="prenom" name="prenom" required /> </label>
+            <label id="field-date"> <span>Date de naissance *</span> <input id="dateNaissance" name="dateNaissance" type="date" required /> </label>
+            <label id="field-lieu"> <span>Lieu de naissance *</span> <input id="lieuNaissance" name="lieuNaissance" required /> </label>
+            <label> <span>Nationalité *</span> <input id="nationalite" name="nationalite" required autocomplete="country-name" /> </label>
+            <label id="field-profession"> <span>Profession</span> <input id="profession" name="profession" /> </label>
+            <label id="field-rcs" class="hidden"> <span>Numéro RCS *</span> <input id="rcs" name="rcs" /> </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="card">
+          <legend>Coordonnées</legend>
+          <label> <span id="label-adresse">Adresse *</span> <textarea id="adresse" name="adresse" rows="3" required placeholder="Numéro, voie, code postal, ville"></textarea> </label>
+          <div class="grid">
+            <label> <span>Adresse mail *</span> <input id="email" name="email" type="email" required /> </label>
+            <label> <span>Numéro de téléphone *</span> <input id="telephone" name="telephone" type="tel" required /> </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="card">
+          <legend>Pièce à joindre</legend>
+          <p>Copie d’une pièce d’identité, ou extrait KBis pour les sociétés. PDF, JPG ou PNG, 8 Mo maximum.</p>
+          <input id="piece" name="piece" type="file" accept=".pdf,image/jpeg,image/png,application/pdf" hidden />
+          <button type="button" class="btn btn-ghost" id="btn-joindre">JOINDRE</button>
+          <p id="piece-name" class="file-name" hidden></p>
+        </fieldset>
+
+        <fieldset class="card">
+          <legend>Consentements</legend>
+          <label class="check"><input id="accepteParticipation" type="checkbox" required /> J’accepte de participer en tant que demandeur à l’action collective.</label>
+          <label class="check"><input id="accepteRgpd" type="checkbox" required /> J’accepte le traitement de mes données aux fins de participation à l’action collective.</label>
+        </fieldset>
+
+        <p id="form-error" class="error" hidden></p>
+        <div class="actions">
+          <button type="submit" class="btn" id="btn-valider">VALIDER</button>
+          <button type="reset" class="btn btn-ghost">Effacer</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="recap" class="band hidden">
+      <div class="wrap">
+        <p class="eyebrow">Confirmation</p>
+        <h2>Inscription envoyée</h2>
+        <p class="lead">Les informations et la pièce jointe ont été transmises à stephane.chicouri@gmail.com. Lors du tout premier envoi, un e-mail de confirmation peut être adressé à l’avocat pour activer la réception.</p>
+        <div id="recap-card" class="card"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="mentions">
+    <div class="wrap">
+      <h2>Secret professionnel</h2>
+      <p>Le contenu de la présente page est soumis au secret professionnel.</p>
+      <p>Cabinet SMITH D’ORIA — Me Stéphane CHICOURI, avocat — 06 82 81 15 31 — stephane.chicouri@gmail.com</p>
+
+      <h2>RGPD</h2>
+      <p>Conformément au règlement (UE) 2016/679 (RGPD) et à la loi Informatique et Libertés, les données personnelles collectées via ce formulaire (identité, coordonnées, et pièce jointe : copie d’une pièce d’identité ou extrait KBis) sont traitées pour l’unique finalité de votre inscription et de votre participation en tant que demandeur à l’action collective relative à la copropriété du 78 avenue des Champs-Élysées.</p>
+      <p>Responsable du traitement : Me Stéphane CHICOURI, avocat, stephane.chicouri@gmail.com. Destinataires : le cabinet SMITH D’ORIA et Me Stéphane CHICOURI, dans le cadre du secret professionnel. Base juridique : l’exécution de la mission d’avocat et votre consentement. Durée de conservation : le temps de la procédure et des délais de recours et d’archivage professionnel.</p>
+      <p>Vous disposez d’un droit d’accès, de rectification, d’effacement, de limitation, et d’opposition, ainsi que du droit de retirer votre consentement. Pour exercer ces droits : stephane.chicouri@gmail.com. Vous pouvez également introduire une réclamation auprès de la CNIL (www.cnil.fr). Les champs du formulaire sont nécessaires à l’instruction du dossier ; à défaut, l’inscription ne peut pas être prise en compte.</p>
+    </div>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
